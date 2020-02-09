@@ -7,7 +7,11 @@ interface BalanceTable {
   principle: number
   interestAmount: number
   sum: number
+  payPerDay: number
+  payPerMonth: number
 }
+
+const sum = (left: number, right: number) => left + right
 
 @Component({
   selector: 'app-home',
@@ -33,13 +37,16 @@ export class HomePage implements OnInit{
       const year = index + 1
       const interestAmount = Math.round(year === 1 ? 0 : (1/100) * balance)
       const principle = Math.round(this.balance * (value/100))
+      const sum = Math.round(principle + interestAmount)
       const result = {
         year,
         remaining: balance,
         paymentRate: value,
         principle,
         interestAmount,
-        sum: Math.round(principle + interestAmount),
+        sum,
+        payPerDay: Math.round(sum/365),
+        payPerMonth: Math.round(sum/12),
       }
       balance = Math.round(balance - result.principle)
       return result
@@ -47,21 +54,21 @@ export class HomePage implements OnInit{
   }
 
   get sumPaymentRate() {
-    return this.paymentRate.reduce((acc, cur) => acc + cur)
+    return this.paymentRate.reduce(sum)
   }
   get sumPrinciple() {
     return this.data
       .map(x => x.principle)
-      .reduce((acc, cur) => acc + cur)
+      .reduce(sum)
   }
   get sumInterestRate() {
     return this.data
       .map(x => x.interestAmount)
-      .reduce((acc, cur) => acc + cur)
+      .reduce(sum)
   }
   get sumAll() {
     return this.data
       .map(x => x.sum)
-      .reduce((acc, cur) => acc + cur)
+      .reduce(sum)
   }
 }
