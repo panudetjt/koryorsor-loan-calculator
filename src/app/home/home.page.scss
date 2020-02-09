@@ -11,6 +11,9 @@
 .responsive-table {
     overflow-x: auto;
     position: relative;
+    .table {
+        width: 100%;
+    } 
 }
 .table {
     thead {
