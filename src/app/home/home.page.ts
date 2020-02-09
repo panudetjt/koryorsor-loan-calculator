@@ -18,7 +18,7 @@ const sum = (left: number, right: number) => left + right
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnInit, AfterViewInit {
+export class HomePage implements OnInit {
   balance = 0
   year = 15
   paymentRate = [1.5, 2.5, 3, 3.5, 4, 4.5, 5, 6, 7, 8, 9, 10, 11, 12, 13]
