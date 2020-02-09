@@ -4,22 +4,56 @@
       <ion-col>
         <ion-item class="balance-input">
           <ion-label position="stacked">ยอดหนี้</ion-label>
-          <ion-input [(ngModel)]="balance"></ion-input>
+          <ion-input
+            type="number"
+            [(ngModel)]="balance"
+            (keyup)="calculate()">
+          </ion-input>
           <div slot="end" class="baht-symbol">฿</div>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <table>
-          <thead>
-            <th>ปีที่</th>
-            <th>หนี้ตามสัญญาคงเหลือ</th>
-            <th>อัตราผ่อนชำระ (ร้อยละของจำนวนเงินกู้ยืม)</th>
-            <th>เงินต้น (1% ของเงินต้นคงเหลือ)</th>
-            <th>ยอดรวมที่ต้องชำระ</th>
-          </thead>
-        </table>
+        <div class="responsive-table">
+          <table class="table">
+            <thead>
+              <th>ปีที่</th>
+              <th>หนี้ตามสัญญาคงเหลือ</th>
+              <th>อัตราผ่อนชำระ <br> (ร้อยละของจำนวนเงินกู้ยืม)</th>
+              <th>เงินต้น</th>
+              <th>ดอกเบี้ย <br> (1% ของเงินต้นคงเหลือ)</th>
+              <th>ยอดรวมที่ต้องชำระ</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of data">
+                <th>{{ item.year | number }}</th>
+                <td>{{ item.remaining | number }}</td>
+                <td>{{ item.paymentRate | number }}</td>
+                <td>{{ item.principle | number }}</td>
+                <td>{{ item.interestAmount | number }}</td>
+                <td>{{ item.sum | number }}</td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  รวม
+                </td>
+                <td>
+                  {{ sumPaymentRate | number }}
+                </td>
+                <td>
+                  {{ sumPrinciple | number }}
+                </td>
+                <td>
+                  {{ sumInterestRate | number }}
+                </td>
+                <td>
+                  {{ sumAll | number }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </ion-col>
     </ion-row>
     <ion-row>

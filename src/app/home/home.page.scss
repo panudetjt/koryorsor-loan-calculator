@@ -3,3 +3,27 @@
         margin-top: 25px;
     }
 }
+.responsive-table {
+    overflow-x: auto;
+    position: relative;
+}
+.table {
+    thead {
+        background-color: #F2F5F7;
+    }
+    th, td {
+        padding: 10px 5px;
+        border-bottom: 1px solid #EBEFF1;
+    }
+    th {
+        white-space: nowrap;
+        background-color: #F2F5F7;
+        &:first-child {
+            position: sticky;
+            left: 0;
+        }
+    }
+    td {
+        text-align: center;
+    }
+}
