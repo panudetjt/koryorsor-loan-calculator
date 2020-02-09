@@ -1,14 +1,31 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item class="balance-input">
+          <ion-label position="stacked">ยอดหนี้</ion-label>
+          <ion-input [(ngModel)]="balance"></ion-input>
+          <div slot="end" class="baht-symbol">฿</div>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <table>
+          <thead>
+            <th>ปีที่</th>
+            <th>หนี้ตามสัญญาคงเหลือ</th>
+            <th>อัตราผ่อนชำระ (ร้อยละของจำนวนเงินกู้ยืม)</th>
+            <th>เงินต้น (1% ของเงินต้นคงเหลือ)</th>
+            <th>ยอดรวมที่ต้องชำระ</th>
+          </thead>
+        </table>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        Reference: <a href="https://www.studentloan.or.th/th/highlight/1547359402" rel="noopener">https://www.studentloan.or.th/th/highlight/1547359402</a>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
