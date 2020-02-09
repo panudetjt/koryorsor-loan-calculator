@@ -5,7 +5,8 @@
         <ion-item class="balance-input card">
           <ion-label position="stacked">ยอดหนี้</ion-label>
           <ion-input
-            type="number"
+            type="text"
+            appMaskNumber
             [(ngModel)]="balance"
             (keyup)="calculate()">
           </ion-input>

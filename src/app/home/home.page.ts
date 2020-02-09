@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 interface BalanceTable {
   year: number
@@ -18,8 +18,8 @@ const sum = (left: number, right: number) => left + right
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnInit{
-  balance = 100000
+export class HomePage implements OnInit, AfterViewInit {
+  balance = 0
   year = 15
   paymentRate = [1.5, 2.5, 3, 3.5, 4, 4.5, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 
@@ -28,7 +28,10 @@ export class HomePage implements OnInit{
   constructor() {}
 
   ngOnInit() {
-    this.calculate()
+    setTimeout(() => {
+      this.balance = 100000
+      this.calculate()
+    }, 300)
   }
 
   calculate() {
@@ -54,21 +57,21 @@ export class HomePage implements OnInit{
   }
 
   get sumPaymentRate() {
-    return this.paymentRate.reduce(sum)
+    return this.paymentRate.reduce(sum, 0)
   }
   get sumPrinciple() {
     return this.data
       .map(x => x.principle)
-      .reduce(sum)
+      .reduce(sum, 0)
   }
   get sumInterestRate() {
     return this.data
       .map(x => x.interestAmount)
-      .reduce(sum)
+      .reduce(sum, 0)
   }
   get sumAll() {
     return this.data
       .map(x => x.sum)
-      .reduce(sum)
+      .reduce(sum, 0)
   }
 }
