@@ -2,11 +2,12 @@
   "name": "koryorsor-loan-calculator",
   "version": "0.0.1",
   "author": "Panudet Tammawongsa",
-  "homepage": "https://github.com/panudetjt",
+  "homepage": "https://panudetjt.github.io/koryorsor-loan-calculator/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-gh-pages": "npm run ng build -- --prod --output-path docs --base-href /koryorsor-loan-calculator/ && mv ./docs/index.html ./docs/404.html",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
