@@ -1,8 +1,8 @@
 {
   "name": "koryorsor-loan-calculator",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Panudet Tammawongsa",
+  "homepage": "https://github.com/panudetjt",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -54,5 +54,5 @@
     "tslint": "^6.0.0",
     "typescript": "^3.7.5"
   },
-  "description": "An Ionic project"
+  "description": "Koryorsor loan calculator."
 }
